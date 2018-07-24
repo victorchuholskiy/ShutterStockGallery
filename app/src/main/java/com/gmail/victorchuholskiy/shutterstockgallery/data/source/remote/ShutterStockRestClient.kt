@@ -1,6 +1,7 @@
 package com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote
 
 import com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote.response.CategoryResponse
+import com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote.response.ImagesResponse
 import io.reactivex.Observable
 
 /**
@@ -17,6 +18,8 @@ interface ShutterStockRestClient {
 	 */
 	val baseUrl : String
 		get() = "https://api.shutterstock.com/v2/"
+
+	fun getImages() : Observable<ImagesResponse>
 
 	fun getCategories() : Observable<CategoryResponse>
 }
