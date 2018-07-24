@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="shutterStockBlack">#191b1f</color>
+	<color name="shutterStockBlackDark">#16181c</color>
+	<color name="shutterStockRed">#ff413b</color>
+
+	<color name="colorPrimary">@color/shutterStockBlack</color>
+	<color name="colorPrimaryDark">@color/shutterStockBlackDark</color>
+	<color name="colorAccent">@color/shutterStockRed</color>
+</resources>
