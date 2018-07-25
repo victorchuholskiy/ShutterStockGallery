@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+	compileSdkVersion rootProject.ext.compileSdkVersion
+	defaultConfig {
+		applicationId "com.gmail.victorchuholskiy.shutterstockgalary"
+		minSdkVersion rootProject.ext.minSdkVersion
+		targetSdkVersion rootProject.ext.targetSdkVersion
+		versionCode 1
+		versionName "1.0"
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+	}
+	buildTypes {
+
+		/*The reason for having two client key pairs (debug and release version)
+		is the availability of an analytics engine integrated in ShutterStock service.
+		The main idea is do not mix analytics data for two versions.*/
+
+		debug {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			buildConfigField "String", "CLIEN_ID", "\"660c8-ea394-a1ad4-2a2da-718c7-3b785\""
+			buildConfigField "String", "CLIENT_SECRET", "\"5fe0f-dc2ee-7e29d-93a40-92123-48549\""
+		}
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			buildConfigField "String", "CLIEN_ID", "\"1b2e8-245af-7f8c5-98765-38ad9-f0cff\""
+			buildConfigField "String", "CLIENT_SECRET", "\"f12f5-ac664-77647-05e25-9e9c9-eee33\""
+		}
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+	// App's dependencies
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
+	implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+	implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+	implementation "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
+	implementation "com.android.support:multidex:$rootProject.ext.multiDexVersion"
+	implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
+
+	// RxJava
+	implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxJavaVersion"
+
+	// Binding
+	implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rootProject.ext.rxBindingVersion"
+
+	// Network, REST Client
+	implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+	implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+	implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+	implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3LoggingVersion"
+
+	// Loading images
+	implementation ("com.squareup.picasso:picasso:$rootProject.ext.picassoVersion") {
+		exclude group: 'com.android.support'
+	}
+
+	// Database
+	kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.ext.dbflowVersion"
+	implementation "com.github.Raizlabs.DBFlow:dbflow-core:$rootProject.ext.dbflowVersion"
+	implementation "com.github.Raizlabs.DBFlow:dbflow:$rootProject.ext.dbflowVersion"
+	implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$rootProject.ext.dbflowVersion"
+	implementation "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.ext.dbflowVersion"
+
+	// Dependencies for local unit tests
+	testImplementation "junit:junit:$rootProject.ext.junitVersion"
+
+	// Android Testing Support Library's runner
+	androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+
+	// Espresso UI Testing
+	androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+}

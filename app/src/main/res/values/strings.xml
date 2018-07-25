@@ -1,0 +1,11 @@
+<resources>
+	<string name="app_name">ShutterStock Gallery</string>
+
+	<string name="all">All</string>
+	<string name="filter">Filter</string>
+	<string name="select_categories">Select category</string>
+	<string name="searching_query">Searching query</string>
+	<string name="apply">Apply</string>
+	<string name="reset_filter">Reset filter</string>
+	<string name="def_error_msg">Something went wrong</string>
+</resources>
