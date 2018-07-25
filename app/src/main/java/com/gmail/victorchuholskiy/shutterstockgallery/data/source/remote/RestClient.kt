@@ -19,7 +19,7 @@ interface RestClient {
 	val baseUrl : String
 		get() = "https://api.shutterstock.com/v2/"
 
-	fun getImages(page: Int, count: Int = 40, category: String = "", search : String = "") : Observable<ImagesResponse>
+	fun getImages(page: Int, count: Int = 30, category: Int = -1, search : String = "") : Observable<ImagesResponse>
 
 	fun getCategories() : Observable<CategoryResponse>
 }

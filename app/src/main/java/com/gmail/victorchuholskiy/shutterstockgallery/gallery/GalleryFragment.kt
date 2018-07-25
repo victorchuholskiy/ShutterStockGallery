@@ -38,7 +38,7 @@ class GalleryFragment : Fragment(), GalleryContract.View {
 				setHasFixedSize(true)
 				layoutManager = imagesLayoutManager
 				adapter = imagesAdapter
-				//addOnScrollListener(infiniteScrollListener)
+				addOnScrollListener(infiniteScrollListener)
 			}
 
 			srlRefresh = findViewById<SwipeRefreshLayout>(R.id.srl_refresh).apply {

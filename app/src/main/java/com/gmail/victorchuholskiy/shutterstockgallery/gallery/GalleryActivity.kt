@@ -11,7 +11,7 @@ import com.gmail.victorchuholskiy.shutterstockgallery.utils.*
 
 class GalleryActivity : AppCompatActivity() {
 
-	private lateinit var galleryPresenter: GalleryPresenter
+	private lateinit var presenter: GalleryPresenter
 
 	private var queryText: String = ""
 	private var categoryId: Int = -1
@@ -29,7 +29,7 @@ class GalleryActivity : AppCompatActivity() {
 		}
 
 		// Create the presenter
-		galleryPresenter = GalleryPresenter(galleryFragment)
+		presenter = GalleryPresenter(galleryFragment)
 	}
 
 	override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,6 +50,8 @@ class GalleryActivity : AppCompatActivity() {
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_FILTER) {
 			queryText = data!!.getStringExtra(ARG_QUERY_TEXT)
 			categoryId = data.getIntExtra(ARG_CATEGORY_ID, -1)
+			presenter.setQueryText(queryText)
+			presenter.setCategoryId(categoryId)
 		}
 	}
 }

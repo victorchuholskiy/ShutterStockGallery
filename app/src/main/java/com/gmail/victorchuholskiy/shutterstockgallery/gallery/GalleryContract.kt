@@ -25,6 +25,10 @@ interface GalleryContract {
 
 	interface Presenter : BasePresenter {
 
-		fun loadImages(page: Int, category: Int = -1, search: String = "", clear: Boolean = false)
+		fun setCategoryId(id: Int)
+
+		fun setQueryText(query: String)
+
+		fun loadImages(page: Int, clear: Boolean = false)
 	}
 }
