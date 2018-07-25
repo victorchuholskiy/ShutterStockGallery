@@ -3,8 +3,9 @@
 	<color name="shutterStockBlack">#191b1f</color>
 	<color name="shutterStockBlackDark">#16181c</color>
 	<color name="shutterStockRed">#ff413b</color>
+	<color name="shutterStockRedDark">#a72622</color>
 
-	<color name="colorPrimary">@color/shutterStockBlack</color>
-	<color name="colorPrimaryDark">@color/shutterStockBlackDark</color>
-	<color name="colorAccent">@color/shutterStockRed</color>
+	<color name="colorPrimary">@color/shutterStockRed</color>
+	<color name="colorPrimaryDark">@color/shutterStockRedDark</color>
+	<color name="colorAccent">@color/shutterStockBlack</color>
 </resources>

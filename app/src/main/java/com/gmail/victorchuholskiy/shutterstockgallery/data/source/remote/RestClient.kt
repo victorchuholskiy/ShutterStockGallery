@@ -10,7 +10,7 @@ import io.reactivex.Observable
  *
  * Main REST interface that describes necessary API methods and contains base URL
  */
-interface ShutterStockRestClient {
+interface RestClient {
 
 	/**
 	 * Base URL of ShutterStock Api.
@@ -19,7 +19,7 @@ interface ShutterStockRestClient {
 	val baseUrl : String
 		get() = "https://api.shutterstock.com/v2/"
 
-	fun getImages() : Observable<ImagesResponse>
+	fun getImages(page: Int, count: Int = 40, category: String = "", search : String = "") : Observable<ImagesResponse>
 
 	fun getCategories() : Observable<CategoryResponse>
 }

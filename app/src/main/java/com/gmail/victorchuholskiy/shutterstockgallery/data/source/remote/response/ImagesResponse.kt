@@ -65,7 +65,7 @@ class ImagesResponse {
 				val height: Int = 0
 
 				@SerializedName("url")
-				val aspect: String? = null
+				val url: String? = null
 
 				@SerializedName("width")
 				val width: Int = 0

@@ -13,7 +13,7 @@ class CategoryResponse {
 
 	inner class Category {
 		@SerializedName("id")
-		val id: Int = 0
+		val id: Int? = null
 
 		@SerializedName("name")
 		val name: String? = null

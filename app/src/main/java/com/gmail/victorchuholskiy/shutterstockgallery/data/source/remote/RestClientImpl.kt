@@ -10,16 +10,16 @@ import io.reactivex.Observable
  * Created by viktor.chukholskiy
  * 24/07/18.
  */
-object ShutterStockRestClientImpl : ShutterStockRestClient {
+object RestClientImpl : RestClient {
 
-	private val mApiService: ShutterStockApiService = createService(
-			ShutterStockApiService::class.java,
+	private val mApiService: ApiService = createService(
+			ApiService::class.java,
 			baseUrl,
 			Gson(),
-			ShutterStockInterceptor(BuildConfig.CLIEN_ID, BuildConfig.CLIENT_SECRET))
+			ApiServiceInterceptor(BuildConfig.CLIEN_ID, BuildConfig.CLIENT_SECRET))
 
-	override fun getImages(): Observable<ImagesResponse> {
-		return mApiService.images
+	override fun getImages(page: Int, count: Int, category: String, search: String): Observable<ImagesResponse> {
+		return mApiService.images(page, count)
 	}
 
 	override fun getCategories(): Observable<CategoryResponse> {

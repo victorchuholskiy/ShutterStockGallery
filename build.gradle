@@ -1,22 +1,23 @@
-// Define versions in a single place
 ext {
-    // Sdk and tools
-    minSdkVersion = 19
-    targetSdkVersion = 28
-    compileSdkVersion = 28
+	// Sdk and tools
+	minSdkVersion = 19
+	targetSdkVersion = 28
+	compileSdkVersion = 28
 
-    // App dependencies
-    kotlinVersion = '1.2.41'
-    supportLibraryVersion = '28.0.0-alpha3'
-    retrofitVersion = '2.3.0'
-    okhttp3LoggingVersion = '3.9.1'
-    multiDexVersion = '1.0.3'
-    constraintVersion = '1.1.2'
-    rxJavaVersion = '2.2.0'
-    rxBindingVersion = '2.0.0'
-    runnerVersion = '1.0.2'
-    espressoVersion = '3.0.2'
-    junitVersion = '4.12'
+	// App dependencies
+	kotlinVersion = '1.2.41'
+	supportLibraryVersion = '28.0.0-alpha3'
+	retrofitVersion = '2.3.0'
+	okhttp3LoggingVersion = '3.9.1'
+	multiDexVersion = '1.0.3'
+	constraintVersion = '1.1.2'
+	rxJavaVersion = '2.2.0'
+	rxBindingVersion = '2.0.0'
+	runnerVersion = '1.0.2'
+	espressoVersion = '3.0.2'
+	junitVersion = '4.12'
+	picassoVersion = '2.71828'
+	dbflowVersion = '4.2.4'
 }
 
 buildscript {
@@ -25,6 +26,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+		maven { url "https://www.jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradlePluginVersion"
@@ -36,6 +38,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+		maven { url "https://www.jitpack.io" }
     }
 }
 
