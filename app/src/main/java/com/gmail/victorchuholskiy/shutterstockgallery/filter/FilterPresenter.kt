@@ -3,8 +3,7 @@ package com.gmail.victorchuholskiy.shutterstockgallery.filter
 import android.content.Context
 import com.gmail.victorchuholskiy.shutterstockgallery.R
 import com.gmail.victorchuholskiy.shutterstockgallery.data.source.local.tables.Categories
-import com.raizlabs.android.dbflow.sql.language.SQLite
-import com.raizlabs.android.dbflow.rx2.language.RXSQLite
+import com.gmail.victorchuholskiy.shutterstockgallery.interactors.loadCategories.LoadCategoriesUseCaseImpl
 
 /**
  * Created by viktor.chukholskiy
@@ -26,9 +25,8 @@ class FilterPresenter(private val view: FilterContract.View)
 	override fun start() {
 		view.setQueryText(queryText)
 		if (categories.isEmpty()) {
-			RXSQLite.rx(
-					SQLite.select().from<Categories>(Categories::class.java))
-					.queryList()
+			LoadCategoriesUseCaseImpl()
+					.execute()
 					.subscribe { list ->
 						categories.addAll(list)
 						val names = ArrayList<String>()

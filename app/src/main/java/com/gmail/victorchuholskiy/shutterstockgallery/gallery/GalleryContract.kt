@@ -20,7 +20,7 @@ interface GalleryContract {
 
 		fun hideProgress()
 
-		fun showError(msg: String)
+		fun showError(exception: Throwable?)
 	}
 
 	interface Presenter : BasePresenter {

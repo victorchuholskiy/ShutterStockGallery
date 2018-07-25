@@ -70,8 +70,8 @@ class GalleryFragment : Fragment(), GalleryContract.View {
 		srlRefresh.isRefreshing = false
 	}
 
-	override fun showError(msg: String) {
-		Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+	override fun showError(exception: Throwable?) {
+		Toast.makeText(context, exception?.message , Toast.LENGTH_SHORT).show()
 	}
 
 	companion object {
