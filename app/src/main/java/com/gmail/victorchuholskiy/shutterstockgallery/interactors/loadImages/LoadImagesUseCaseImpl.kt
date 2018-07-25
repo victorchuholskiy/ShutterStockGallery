@@ -11,7 +11,6 @@ import io.reactivex.schedulers.Schedulers
  * 25.07.2018.
  */
 class LoadImagesUseCaseImpl(private val page: Int, private val category: Int, private val query: String) : LoadImagesUseCase {
-
 	override fun execute(): Observable<List<ImageModel>> {
 		return RestClientImpl
 				.getImages(page, category = category, search = query)

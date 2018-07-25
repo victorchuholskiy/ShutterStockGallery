@@ -9,6 +9,5 @@ import io.reactivex.Observable
  * 25.07.2018.
  */
 interface LoadImagesUseCase : UseCase<List<ImageModel>> {
-
 	override fun execute(): Observable<List<ImageModel>>
 }

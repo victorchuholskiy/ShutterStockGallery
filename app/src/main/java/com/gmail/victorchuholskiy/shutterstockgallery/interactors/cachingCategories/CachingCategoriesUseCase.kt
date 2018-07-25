@@ -8,6 +8,5 @@ import io.reactivex.Observable
  * 26.07.2018.
  */
 interface CachingCategoriesUseCase : UseCase<Boolean> {
-
 	override fun execute(): Observable<Boolean>
 }

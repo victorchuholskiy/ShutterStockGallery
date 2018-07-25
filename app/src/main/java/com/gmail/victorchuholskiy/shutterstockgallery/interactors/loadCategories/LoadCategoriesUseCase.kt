@@ -9,6 +9,5 @@ import io.reactivex.Observable
  * 26.07.2018.
  */
 interface LoadCategoriesUseCase: UseCase<List<Categories>> {
-
 	override fun execute(): Observable<List<Categories>>
 }
