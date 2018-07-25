@@ -3,6 +3,8 @@ package com.gmail.victorchuholskiy.shutterstockgallery.gallery
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
@@ -32,7 +34,7 @@ class GalleryFragment : Fragment(), GalleryContract.View {
 							  savedInstanceState: Bundle?): View? {
 		val view = inflater.inflate(R.layout.fragment_gallery, container, false)
 
-		val imagesLayoutManager = StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.HORIZONTAL)
+		val imagesLayoutManager = GridLayoutManager(context, 3)
 
 		with(view) {
 			rvImages = findViewById<RecyclerView>(R.id.rv_images).apply {
