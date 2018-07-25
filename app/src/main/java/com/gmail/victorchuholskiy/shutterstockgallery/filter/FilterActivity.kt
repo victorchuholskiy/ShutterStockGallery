@@ -43,7 +43,9 @@ class FilterActivity : AppCompatActivity() {
 	}
 
 	companion object {
-		fun getIntent(context: Context, queryText: String, categoryId: Int): Intent {
+		fun getIntent(context: Context,
+					  queryText: String,
+					  categoryId: Int): Intent {
 			val intent = Intent(context, FilterActivity::class.java)
 			intent.putExtra(ARG_QUERY_TEXT, queryText)
 			intent.putExtra(ARG_CATEGORY_ID, categoryId)

@@ -7,8 +7,7 @@ package com.gmail.victorchuholskiy.shutterstockgallery.gallery
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 
-class InfiniteScrollListener(
-		private val func: () -> Unit) : RecyclerView.OnScrollListener() {
+class InfiniteScrollListener(private val func: () -> Unit) : RecyclerView.OnScrollListener() {
 
 	private var isLoading: Boolean = false
 	private var pastVisibleItems: Int = 0
@@ -16,7 +15,9 @@ class InfiniteScrollListener(
 	var hasMorePages: Boolean = true
 	var isRefreshing: Boolean = false
 
-	override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+	override fun onScrolled(recyclerView: RecyclerView,
+							dx: Int,
+							dy: Int) {
 		super.onScrolled(recyclerView, dx, dy)
 		val manager = recyclerView.layoutManager as StaggeredGridLayoutManager?
 

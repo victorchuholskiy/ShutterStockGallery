@@ -1,6 +1,8 @@
 package com.gmail.victorchuholskiy.shutterstockgallery.gallery
 
 import com.gmail.victorchuholskiy.shutterstockgallery.interactors.loadImages.LoadImagesUseCaseImpl
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_CATEGORY_ID
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_QUERY_TEXT
 
 /**
  * Created by viktor.chukholskiy
@@ -9,8 +11,8 @@ import com.gmail.victorchuholskiy.shutterstockgallery.interactors.loadImages.Loa
 class GalleryPresenter(private val view: GalleryContract.View)
 	: GalleryContract.Presenter {
 
-	private var queryText: String = ""
-	private var categoryId: Int = -1
+	private var queryText: String = DEF_QUERY_TEXT
+	private var categoryId: Int = DEF_CATEGORY_ID
 
 	init {
 		view.presenter = this
@@ -28,7 +30,8 @@ class GalleryPresenter(private val view: GalleryContract.View)
 		queryText = query
 	}
 
-	override fun loadImages(page: Int, clear: Boolean) {
+	override fun loadImages(page: Int,
+							clear: Boolean) {
 		view.showProgress()
 		LoadImagesUseCaseImpl(page, categoryId, queryText)
 				.execute()

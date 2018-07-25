@@ -18,7 +18,10 @@ object RestClientImpl : RestClient {
 			Gson(),
 			ApiServiceInterceptor(BuildConfig.CLIEN_ID, BuildConfig.CLIENT_SECRET))
 
-	override fun getImages(page: Int, count: Int, category: Int, search: String): Observable<ImagesResponse> {
+	override fun getImages(page: Int,
+						   count: Int,
+						   category: Int,
+						   search: String): Observable<ImagesResponse> {
 		if (category >= 0) {
 			return mApiService.images(page, count, category, search)
 		}

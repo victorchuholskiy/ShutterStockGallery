@@ -14,7 +14,8 @@ interface GalleryContract {
 
 	interface View : BaseView<Presenter> {
 
-		fun showImages(images: List<ImageModel>, clear: Boolean = false)
+		fun showImages(images: List<ImageModel>,
+					   clear: Boolean = false)
 
 		fun showProgress()
 
@@ -29,6 +30,7 @@ interface GalleryContract {
 
 		fun setQueryText(query: String)
 
-		fun loadImages(page: Int, clear: Boolean = false)
+		fun loadImages(page: Int,
+					   clear: Boolean = false)
 	}
 }

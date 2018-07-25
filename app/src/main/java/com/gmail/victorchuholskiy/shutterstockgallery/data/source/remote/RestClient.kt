@@ -2,6 +2,9 @@ package com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote
 
 import com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote.response.CategoryResponse
 import com.gmail.victorchuholskiy.shutterstockgallery.data.source.remote.response.ImagesResponse
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_CATEGORY_ID
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_QUERY_TEXT
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.PAGE_COUNT_IMAGES
 import io.reactivex.Observable
 
 /**
@@ -19,7 +22,10 @@ interface RestClient {
 	val baseUrl : String
 		get() = "https://api.shutterstock.com/v2/"
 
-	fun getImages(page: Int, count: Int = 30, category: Int = -1, search : String = "") : Observable<ImagesResponse>
+	fun getImages(page: Int,
+				  count: Int = PAGE_COUNT_IMAGES,
+				  category: Int = DEF_CATEGORY_ID,
+				  search : String = DEF_QUERY_TEXT) : Observable<ImagesResponse>
 
 	fun getCategories() : Observable<CategoryResponse>
 }

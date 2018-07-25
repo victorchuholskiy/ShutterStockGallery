@@ -26,7 +26,8 @@ class FilterFragment : Fragment(), FilterContract.View {
 	private lateinit var etQuery: EditText
 	private lateinit var spCategories: Spinner
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+	override fun onCreateView(inflater: LayoutInflater,
+							  container: ViewGroup?,
 							  savedInstanceState: Bundle?): View? {
 		val view = inflater.inflate(R.layout.fragment_filter, container, false)
 		with(view) {
@@ -45,7 +46,8 @@ class FilterFragment : Fragment(), FilterContract.View {
 		presenter.start()
 	}
 
-	override fun initCategoriesSpinner(categories: List<String>, position: Int) {
+	override fun initCategoriesSpinner(categories: List<String>,
+									   position: Int) {
 		val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, categories)
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 		spCategories.adapter = adapter
@@ -60,7 +62,8 @@ class FilterFragment : Fragment(), FilterContract.View {
 		etQuery.setText(text)
 	}
 
-	override fun finishActivity(queryText: String, categoryId: Int) {
+	override fun finishActivity(queryText: String,
+								categoryId: Int) {
 		val intent = Intent()
 		intent.putExtra(ARG_QUERY_TEXT, queryText)
 		intent.putExtra(ARG_CATEGORY_ID, categoryId)

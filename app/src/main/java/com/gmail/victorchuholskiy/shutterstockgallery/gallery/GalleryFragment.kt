@@ -27,7 +27,8 @@ class GalleryFragment : Fragment(), GalleryContract.View {
 	private val imagesAdapter = ImagesAdapter(ArrayList(), listener = {})
 	private val infiniteScrollListener = InfiniteScrollListener(func = { presenter.loadImages(imagesAdapter.page + 1) })
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+	override fun onCreateView(inflater: LayoutInflater,
+							  container: ViewGroup?,
 							  savedInstanceState: Bundle?): View? {
 		val view = inflater.inflate(R.layout.fragment_gallery, container, false)
 
@@ -57,7 +58,8 @@ class GalleryFragment : Fragment(), GalleryContract.View {
 		presenter.start()
 	}
 
-	override fun showImages(images: List<ImageModel>, clear: Boolean) {
+	override fun showImages(images: List<ImageModel>,
+							clear: Boolean) {
 		if (clear) imagesAdapter.setData(images) else imagesAdapter.addData(images)
 		infiniteScrollListener.isRefreshing = false
 	}

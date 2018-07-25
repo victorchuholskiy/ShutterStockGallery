@@ -13,7 +13,8 @@ import com.raizlabs.android.dbflow.annotation.Table
 @Table(database = GalleryDatabase::class)
 class Categories() : BaseModel() {
 
-	constructor(id: Int, name: String) : this() {
+	constructor(id: Int,
+				name: String) : this() {
 		this.id = id
 		this.name = name
 	}

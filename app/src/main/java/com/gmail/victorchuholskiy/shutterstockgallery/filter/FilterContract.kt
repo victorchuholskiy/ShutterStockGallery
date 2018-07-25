@@ -14,20 +14,25 @@ interface FilterContract {
 
 	interface View : BaseView<Presenter> {
 
-		fun initCategoriesSpinner(categories: List<String>, position: Int)
+		fun initCategoriesSpinner(categories: List<String>,
+								  position: Int)
 
 		fun setSpinnerPosition(position: Int)
 
 		fun setQueryText(text: String)
 
-		fun finishActivity(queryText: String, categoryId: Int)
+		fun finishActivity(queryText: String,
+						   categoryId: Int)
 	}
 
 	interface Presenter : BasePresenter {
 
-		fun setData(context: Context?, queryText: String, categoryId: Int)
+		fun setData(context: Context?,
+					queryText: String,
+					categoryId: Int)
 
-		fun btnApplyClicked(queryText: String, categoryPos: Int)
+		fun btnApplyClicked(queryText: String,
+							categoryPos: Int)
 
 		fun btnResetClicked()
 	}

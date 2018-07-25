@@ -4,6 +4,8 @@ import android.content.Context
 import com.gmail.victorchuholskiy.shutterstockgallery.R
 import com.gmail.victorchuholskiy.shutterstockgallery.data.source.local.tables.Categories
 import com.gmail.victorchuholskiy.shutterstockgallery.interactors.loadCategories.LoadCategoriesUseCaseImpl
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_CATEGORY_ID
+import com.gmail.victorchuholskiy.shutterstockgallery.utils.DEF_QUERY_TEXT
 
 /**
  * Created by viktor.chukholskiy
@@ -17,8 +19,9 @@ class FilterPresenter(private val view: FilterContract.View)
 	}
 
 	private lateinit var defCategoryName: String
-	private lateinit var queryText: String
-	private var categoryId: Int = -1
+
+	private var queryText: String = DEF_QUERY_TEXT
+	private var categoryId: Int = DEF_CATEGORY_ID
 
 	private val categories = ArrayList<Categories>()
 
@@ -43,18 +46,23 @@ class FilterPresenter(private val view: FilterContract.View)
 		}
 	}
 
-	override fun setData(context: Context?, queryText: String, categoryId: Int) {
+	override fun setData(context: Context?,
+						 queryText: String,
+						 categoryId: Int) {
 		defCategoryName = context!!.getString(R.string.all)
 		this.queryText = queryText
 		this.categoryId = categoryId
 	}
 
-	override fun btnApplyClicked(queryText: String, categoryPos: Int) {
+	override fun btnApplyClicked(queryText: String,
+								 categoryPos: Int) {
 		view.finishActivity(queryText, if (categoryPos > 0) categories[categoryPos - 1].id else -1)
 	}
 
 	override fun btnResetClicked() {
-		view.setQueryText("")
+		queryText = DEF_QUERY_TEXT
+		categoryId = DEF_CATEGORY_ID
+		view.setQueryText(queryText)
 		view.setSpinnerPosition(0)
 	}
 }

@@ -14,7 +14,8 @@ import java.io.IOException
  * 		user - client id
  * 		password - client secret
  */
-class ApiServiceInterceptor(user: String, password: String) : Interceptor {
+class ApiServiceInterceptor(user: String,
+							password: String) : Interceptor {
 
 	private val credentials: String = Credentials.basic(user, password)
 

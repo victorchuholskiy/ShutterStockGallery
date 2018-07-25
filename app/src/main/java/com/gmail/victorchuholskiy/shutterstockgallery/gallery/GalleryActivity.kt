@@ -13,8 +13,8 @@ class GalleryActivity : AppCompatActivity() {
 
 	private lateinit var presenter: GalleryPresenter
 
-	private var queryText: String = ""
-	private var categoryId: Int = -1
+	private var queryText: String = DEF_QUERY_TEXT
+	private var categoryId: Int = DEF_CATEGORY_ID
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -46,10 +46,12 @@ class GalleryActivity : AppCompatActivity() {
 		return super.onOptionsItemSelected(item)
 	}
 
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+	override fun onActivityResult(requestCode: Int,
+								  resultCode: Int,
+								  data: Intent?) {
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_FILTER) {
 			queryText = data!!.getStringExtra(ARG_QUERY_TEXT)
-			categoryId = data.getIntExtra(ARG_CATEGORY_ID, -1)
+			categoryId = data.getIntExtra(ARG_CATEGORY_ID, DEF_CATEGORY_ID)
 			presenter.setQueryText(queryText)
 			presenter.setCategoryId(categoryId)
 		}
