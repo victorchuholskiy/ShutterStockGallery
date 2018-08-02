@@ -18,12 +18,12 @@ class SplashPresenter(private val view: SplashContract.View)
 	override fun start() {
 		DBCategoriesSizeUseCaseImpl()
 				.execute()
-				.flatMap({ count ->
-					if (count == 0L)
+				.flatMap {
+					if (it == 0L)
 						CachingCategoriesUseCaseImpl().execute()
 					else
 						Observable.just<Boolean>(true)
-				})
+				}
 				.subscribe({ result ->
 					when (result) {
 						true -> view.navigateNextScreen()

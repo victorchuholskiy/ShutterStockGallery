@@ -16,10 +16,10 @@ class LoadImagesUseCaseImpl(private val page: Int, private val category: Int, pr
 				.getImages(page, category = category, search = query)
 				.subscribeOn(Schedulers.newThread())
 				.observeOn(AndroidSchedulers.mainThread())
-				.map({ response ->
+				.map {
 					val images = ArrayList<ImageModel>()
-					if (response.data != null) {
-						for (responseImage in response.data) {
+					if (it.data != null) {
+						for (responseImage in it.data) {
 							images.add(ImageModel(
 									responseImage.id,
 									responseImage.aspect,
@@ -29,6 +29,6 @@ class LoadImagesUseCaseImpl(private val page: Int, private val category: Int, pr
 						}
 					}
 					images
-				})
+				}
 	}
 }
